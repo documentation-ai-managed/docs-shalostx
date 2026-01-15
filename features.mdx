@@ -1,0 +1,147 @@
+---
+title: Core Features of Shalostx
+description: Explore the essential tools in Shalostx for building, organizing, and collaborating on project documentation.
+---
+
+## Overview
+
+Shalostx provides powerful tools to create, organize, and collaborate on your project documentation. You streamline workflows with intuitive document editing, flexible organization options, real-time collaboration, and robust search capabilities. Build comprehensive docs spaces tailored to your team's needs.
+
+<Callout kind="info">
+  Start with the [Quickstart](/quickstart) guide to set up your first document.
+</Callout>
+
+## Key Features
+
+Discover the core capabilities that make Shalostx your go-to documentation platform.
+
+<Columns cols={2}>
+  <Card title="Document Creation & Editing" icon="edit-3" href="#document-creation">
+    Craft rich MDX documents with live previews and version control.
+  </Card>
+  <Card title="Organization" icon="folder" href="#organization">
+    Structure content using folders and tags for easy navigation.
+  </Card>
+  <Card title="Collaboration" icon="users" href="#collaboration">
+    Invite team members and share docs securely.
+  </Card>
+  <Card title="Search & History" icon="search" href="#search-history">
+    Find content quickly and track changes over time.
+  </Card>
+</Columns>
+
+## Document Creation and Editing
+
+Create new documents directly in your Shalostx workspace. You access the editor via the dashboard or API for automated workflows.
+
+<Steps>
+  <Step title="Create a New Document" icon="plus">
+    Navigate to your workspace and click **New Document**.
+
+    Choose a template like "API Reference" or start blank.
+  </Step>
+  <Step title="Edit with MDX" icon="edit">
+    Use the live MDX editor for headings, code blocks, and components.
+
+````mdx
+## Welcome
+
+This is your first document.
+
+```javascript
+console.log("Hello, Shalostx!");
+```
+````
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Preview changes in real-time, then publish to make it live.
+  </Step>
+</Steps>
+
+Integrate via API for programmatic creation:
+
+<CodeGroup tabs="JavaScript,cURL">
+  ```javascript
+  const response = await fetch('https://api.example.com/v1/documents', {
+    method: 'POST',
+    headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` },
+    body: JSON.stringify({
+      title: 'My New Doc',
+      content: '# Hello World'
+    })
+  });
+  ```
+  ```bash
+  curl -X POST https://api.example.com/v1/documents \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{"title":"My New Doc","content":"# Hello World"}'
+  ```
+</CodeGroup>
+
+## Organization with Folders and Tags
+
+Organize documents using folders for hierarchy or tags for cross-referencing.
+
+<Tabs>
+  <Tab title="Folders" icon="folder">
+    Create nested folders to mirror your project structure.
+
+    | Action       | Description                  |
+    |--------------|------------------------------|
+    | Create Folder| Right-click workspace > New Folder |
+    | Move Doc     | Drag document to folder      |
+    | Rename       | Edit folder properties       |
+
+    Folders support unlimited nesting for complex projects.
+  </Tab>
+  <Tab title="Tags" icon="tag">
+    Apply tags like `api`, `guide`, or `deprecated` for filtering.
+
+    <ParamField path="tags" param-type="array" required="false">
+      Array of strings for categorization.
+    </ParamField>
+
+    Combine with search for dynamic organization.
+  </Tab>
+</Tabs>
+
+## Collaboration and Sharing
+
+Invite collaborators with role-based access: viewer, editor, or admin. Generate shareable links with optional passwords.
+
+<Callout kind="tip">
+  Use public links for read-only access and protected links for teams.
+</Callout>
+
+Track edits in real-time with @mentions and comments.
+
+## Search and Version History
+
+Search across all documents with full-text indexing. Filter by tags, folders, or date.
+
+<Expandable title="Version History Details" default-open="true">
+  Access history via document settings:
+
+  - View diffs between versions
+  - Restore previous states
+  - Export change logs
+
+  Every edit creates a snapshot, retained for 90 days.
+</Expandable>
+
+<ResponseField name="versions" field-type="array">
+  Array of version objects with timestamps and authors.
+</ResponseField>
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Get started in minutes.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your workspace.
+  </Card>
+  <Card title="Changelog" icon="git-branch" href="/changelog">
+    Stay updated.
+  </Card>
+</Columns>

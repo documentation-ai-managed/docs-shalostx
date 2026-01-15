@@ -1,0 +1,145 @@
+---
+title: Changelog
+description: Stay updated with the latest releases, features, and improvements in Shalostx.
+---
+
+## Recent Changes
+
+Shalostx evolves quickly to help you organize and manage your project documentation effectively. Check this changelog for the latest releases, new features, bug fixes, and migration instructions. You stay informed on updates that enhance your documentation workflow.
+
+<Columns cols={3}>
+  <Card title="Latest Release" icon="zap" href="#v1.2.0">
+    Discover what's new in v1.2.0.
+  </Card>
+  <Card title="Migration Guide" icon="settings" href="#migration">
+    Update your projects smoothly.
+  </Card>
+  <Card title="Get Started" icon="book-open" href="/introduction">
+    New to Shalostx? Start here.
+  </Card>
+</Columns>
+
+## Release History
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for teams to edit docs simultaneously
+- Introduced advanced search with full-text indexing across all pages
+
+## Improvements
+
+- Enhanced sidebar navigation with drag-and-drop reordering
+- Optimized page load times by `>30%` for large documentation sites
+
+## Bug Fixes
+
+- Fixed rendering issues with nested lists in markdown previews
+- Resolved export failures for sites with custom domains
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Dark mode support with automatic system preference detection
+- Integrated version history for tracking doc changes over time
+
+## Bug Fixes
+
+- Patched security vulnerability in file upload handling (CVE-2024-XXXX)
+- Corrected YAML frontmatter parsing errors for complex metadata
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy `{legacyConfig}` option; use `newConfig` instead
+
+## New Features
+
+- Core documentation workspace with MDX support
+- Customizable themes and brand colors (default: `#3B82F6`)
+
+## Initial Setup
+
+- Basic page creation and organization tools
+
+</Update>
+
+## Migration Guide
+
+<Callout kind="alert">
+  Review breaking changes before updating. Backup your workspace first.
+</Callout>
+
+Follow these steps to migrate to the latest version:
+
+<Steps>
+  <Step title="Backup Workspace" icon="database">
+    Export your current site:
+    
+````bash
+shalostx export --workspace my-project > backup.tar.gz
+````
+    
+  </Step>
+  <Step title="Update CLI" icon="download">
+    Install the latest version using your package manager.
+    
+    <CodeGroup tabs="npm,yarn">
+````bash
+npm install shalostx@latest
+````
+````bash
+yarn add shalostx@latest
+````
+    </CodeGroup>
+  </Step>
+  <Step title="Reconfigure" icon="settings">
+    Update your config file. Replace deprecated options:
+    
+````yaml
+# Old (v1.0.0)
+legacyConfig: true
+
+# New (v1.2.0+)
+newConfig:
+  enableRealtime: true
+  themeColor: "#3B82F6"
+````
+    
+  </Step>
+  <Step title="Deploy" icon="rocket">
+    Redeploy your site:
+    
+````bash
+shalostx deploy --prod
+````
+  </Step>
+</Steps>
+
+<Expandable title="Detailed Migration Notes" default-open="false">
+
+For v1.2.0, update API endpoints from `https://api.example.com/v1` to `https://api.example.com/v2`. Test in staging first.
+
+| Version | Key Migration Step | Impact |
+|---------|--------------------|--------|
+| v1.2.0  | Update config YAML | Low    |
+| v1.1.0  | Enable dark mode  | None   |
+| v1.0.0  | Initial setup     | High   |
+
+</Expandable>
+
+<Tabs>
+  <Tab title="npm Migration" icon="package">
+    Run `npm update shalostx` and verify `package.json`.
+  </Tab>
+  <Tab title="yarn Migration" icon="package">
+    Use `yarn upgrade shalostx` for seamless updates.
+  </Tab>
+</Tabs>

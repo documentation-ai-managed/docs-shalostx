@@ -1,0 +1,110 @@
+---
+title: Introduction to Shalostx
+description: Discover Shalostx, your default documentation space for organizing and managing project documentation with ease and efficiency.
+---
+
+## Overview
+
+Shalostx provides a centralized hub for your project documentation. You create, organize, and publish docs effortlessly, keeping teams aligned. Customize layouts, embed media, and collaborate in real-time to streamline your workflow.
+
+<Callout kind="info">
+Shalostx supports Markdown, MDX, and integrates with Git for version control.
+</Callout>
+
+## Key Features
+
+Shalostx delivers powerful tools to enhance your documentation experience.
+
+<Columns cols={3}>
+  <Card title="Seamless Organization" icon="folder" href="/docs/organization">
+    Structure docs hierarchically with drag-and-drop folders and automatic navigation.
+  </Card>
+  <Card title="Real-Time Collaboration" icon="users" href="/docs/collaboration">
+    Edit docs simultaneously with teammates, track changes, and leave comments.
+  </Card>
+  <Card title="Custom Theming" icon="palette" href="/docs/theming">
+    Apply your brand colors and fonts across all documentation pages.
+  </Card>
+</Columns>
+
+## Quick Navigation Guide
+
+Get up and running quickly with these steps.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create your free account at `https://app.shalostx.com/signup`.
+
+    ```bash
+    # Optional: Use CLI for quick setup
+    npx create-shalostx@latest my-docs
+    ```
+  </Step>
+  <Step title="Create Project" icon="plus">
+    Start a new documentation space and import existing Markdown files.
+  </Step>
+  <Step title="Publish Docs" icon="rocket">
+    Preview changes live, then deploy to a custom domain.
+  </Step>
+</Steps>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency when customizing Shalostx.
+
+### Color Palette
+
+| Color Name | Hex Code     | Usage                  |
+|------------|--------------|------------------------|
+| Primary    | `#3B82F6`   | Buttons, links, accents |
+| Secondary  | `#1E40AF`   | Headings, borders      |
+| Neutral    | `#F8FAFC`   | Backgrounds            |
+| Danger     | `#EF4444`   | Errors, alerts         |
+
+<Tabs>
+  <Tab title="CSS Variables" icon="code">
+    Define brand colors in your theme configuration.
+
+    <CodeGroup tabs="CSS,SCSS">
+      ```css
+      :root {
+        --primary-color: #3B82F6;
+        --secondary-color: #1E40AF;
+      }
+
+      .button {
+        background-color: var(--primary-color);
+        color: white;
+      }
+      ```
+      ```scss
+      $primary: #3B82F6;
+      $secondary: #1E40AF;
+
+      .button {
+        background-color: $primary;
+        color: white;
+      }
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="Component Usage" icon="package">
+    Apply colors to Shalostx components.
+
+    ```jsx
+    <Card title="Example" icon="star" style={{ '--accent': '#3B82F6' }}>
+      Branded card content.
+    </Card>
+    ```
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Theming Tips" default-open="false">
+  Override default styles by injecting custom CSS. Target classes like `.doc-header` for precise control.
+
+  <Callout kind="tip">
+    Test themes in preview mode before publishing.
+  </Callout>
+</Expandable>
+
+Ready to dive deeper? Check the [Quickstart](/quickstart) guide next.
